@@ -1,0 +1,77 @@
+{
+  "overall_result": "Nepal had 277,309 confirmed COVID-19 cases by 2021-03-31. Most of those cases were no longer active because recovered and deaths together made R = 275,816. Only 1,493 cases were active at the end.",
+  "what_we_found_from_the_data": {
+    "confirmed_cases": "Confirmed cases grew from 1.0 on 2020-03-01 to 277309.0 on 2021-03-31. This shows total reported cases increased strongly during the period.",
+    "susceptible_people": "Confirmed is not susceptible. Susceptible means people not yet counted as confirmed infected. By the final date, susceptible was 28859499.0.",
+    "removed_R": "R was made by adding recovered and deaths. On the final date, R was 275816.0, which is 99.46% of confirmed cases. This means most confirmed cases had already moved out of active infection.",
+    "active_I": "Active infected cases were 1493.0 on the final date, only 0.54% of confirmed cases. This tells us the active load was much smaller than the total reported cases at the end.",
+    "estimated_exposed_E": "E is not directly given by the dataset. It was estimated from recent new confirmed cases. On the final date, estimated exposed was 644.0."
+  },
+  "plot_1_actual_seir_compartments": {
+    "plot_file": "plots/simple_seir_actual.png",
+    "what_it_shows": "This plot shows confirmed total, estimated exposed E, active infected I, and removed R over time.",
+    "what_we_notice": [
+      "Confirmed cases increase over time because it is cumulative.",
+      "Removed R rises strongly because recovered and deaths keep adding up.",
+      "Active infected I rises and falls, so it shows waves more clearly than confirmed.",
+      "Estimated exposed E follows the recent new-case trend because E is estimated from new confirmed cases."
+    ],
+    "main_finding": "By the end, confirmed and R are high, but active infected is low. This means most reported cases had recovered or died by 2021-03-31."
+  },
+  "plot_2_actual_vs_rk4": {
+    "plot_file": "plots/simple_seir_rk4_compare.png",
+    "what_it_shows": "This plot compares actual E, I, R values with the values calculated by the RK4 SEIR model.",
+    "what_we_notice": [
+      "RK4 follows the same general direction as the actual values.",
+      "The model is not perfect because E is estimated and beta/gamma change day by day.",
+      "When RK4 and actual lines are close, the SEIR equations are representing the data better."
+    ],
+    "main_finding": "RK4 gives a mathematical reconstruction of Nepal's epidemic trend. It helps compare real data with SEIR model behavior."
+  },
+  "plot_3_recovered_deaths_removed": {
+    "plot_file": "plots/simple_removed_is_recovered_plus_deaths.png",
+    "what_it_shows": "This plot shows recovered, deaths, and R together.",
+    "what_we_notice": [
+      "Recovered is much larger than deaths.",
+      "R is very close to recovered because deaths are much smaller compared with recovered.",
+      "Deaths still must be included in R because deaths are also removed from active infection."
+    ],
+    "main_finding": "R mostly grows because of recoveries, but deaths are included to make the removed compartment correct."
+  },
+  "important_peaks": {
+    "highest_active_infected_I": {
+      "date": "2020-10-23",
+      "value": 46691.0,
+      "meaning": "This was the highest active infection burden in the selected period."
+    },
+    "highest_estimated_exposed_E": {
+      "date": "2020-10-23",
+      "value": 20762.0,
+      "meaning": "This was the highest estimated exposed value based on recent new cases."
+    },
+    "highest_daily_new_confirmed": {
+      "date": "2020-10-21",
+      "value": 5743.0,
+      "meaning": "This was the largest one-day increase in confirmed cases."
+    },
+    "highest_deaths_total": {
+      "date": "2021-03-30",
+      "value": 3030.0,
+      "meaning": "Deaths are cumulative, so the highest total appears near the end."
+    }
+  },
+  "final_numbers_on_2021_03_31": {
+    "confirmed_total": 277309.0,
+    "recovered": 272786.0,
+    "deaths": 3030.0,
+    "R_removed_recovered_plus_deaths": 275816.0,
+    "I_active_infected": 1493.0,
+    "E_estimated_exposed": 644.0,
+    "S_susceptible": 28859499.0,
+    "recovered_percent_of_confirmed": 98.37,
+    "death_percent_of_confirmed": 1.09,
+    "active_percent_of_confirmed": 0.54,
+    "removed_percent_of_confirmed": 99.46
+  },
+  "main_conclusion": "The major pattern is that Nepal's confirmed cases increased greatly from March 2020 to March 2021, but by the final date almost all confirmed cases were already in R. The peak active infection period was around October 2020. The SEIR RK4 model helps show the relationship between susceptible, estimated exposed, active infected, and removed cases."
+}
