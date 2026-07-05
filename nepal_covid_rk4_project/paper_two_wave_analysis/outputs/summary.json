@@ -1,0 +1,139 @@
+{
+  "task_completed": {
+    "forward_RK4_for_both_waves": true,
+    "paper_beta_scenarios": true,
+    "model_fitting_and_validation": true,
+    "basic_and_effective_reproduction_numbers": true,
+    "notebook_created": false
+  },
+  "reference_paper_values": {
+    "beta": 0.0536,
+    "eta": 0.192,
+    "gamma": 0.0588,
+    "delta": 0.004,
+    "recorded_portion_p": 0.0473,
+    "paper_R0_at_beta_0_0536": 0.8535031847133758,
+    "beta_scenarios": {
+      "Paper beta (0% reduction)": 0.0536,
+      "25% beta reduction": 0.0402,
+      "50% beta reduction": 0.0268,
+      "75% beta reduction": 0.0134
+    }
+  },
+  "important_model_meaning": {
+    "S": "Susceptible people who can still become exposed.",
+    "E": "Exposed people who are infected but are not yet infectious.",
+    "I": "People who are infectious.",
+    "R": "Recovered plus deaths, as required by the assignment.",
+    "beta": "How quickly infection passes from I to S.",
+    "R0": "Expected secondary cases when nearly everyone is susceptible.",
+    "Re": "Expected secondary cases at a particular time after allowing for S/N."
+  },
+  "wave_results": {
+    "wave_1": {
+      "name": "First wave",
+      "date_start": "2020-09-17",
+      "date_end": "2021-03-13",
+      "highest_daily_confirmed_date": "2020-10-21",
+      "highest_daily_confirmed_cases": 5743.0,
+      "initial_values": {
+        "S": 25000000.0,
+        "E": 100000.0,
+        "I": 1500000.0,
+        "R": 1000000.0
+      },
+      "fitted_beta_before_peak": 0.06318610711718979,
+      "fitted_beta_after_peak": 0.05630621760915139,
+      "basic_R0_before_peak": 1.0061482025030222,
+      "basic_R0_after_peak": 0.8965958218017738,
+      "first_date_Re_below_1_after_beta_change": "2020-10-21",
+      "validation_RMSE_cases": 13003.806690404055,
+      "validation_MAE_cases": 12806.147225951936,
+      "validation_MAPE_percent": 4.676912025214537,
+      "validation_R_squared": -167.92044630732263
+    },
+    "wave_2": {
+      "name": "Second wave",
+      "date_start": "2021-03-14",
+      "date_end": "2021-07-31",
+      "highest_daily_confirmed_date": "2021-05-11",
+      "highest_daily_confirmed_cases": 9317.0,
+      "initial_values": {
+        "S": 23309998.627202258,
+        "E": 7972.16349541931,
+        "I": 18837.20930232558,
+        "R": 5800000.0
+      },
+      "fitted_beta_before_peak": 0.2631235178314474,
+      "fitted_beta_after_peak": 0.07430375191476447,
+      "basic_R0_before_peak": 4.189864933621774,
+      "basic_R0_after_peak": 1.1831807629739566,
+      "first_date_Re_below_1_after_beta_change": "2021-05-12",
+      "validation_RMSE_cases": 14549.947319666057,
+      "validation_MAE_cases": 14255.443608775751,
+      "validation_MAPE_percent": 2.141986727052961,
+      "validation_R_squared": 0.037370832975079704
+    }
+  },
+  "paper_beta_scenario_results": {
+    "wave_1": {
+      "Paper beta (0% reduction)": {
+        "beta": 0.0536,
+        "basic_R0": 0.8535031847133758,
+        "predicted_confirmed_at_end": 240276.49773031185
+      },
+      "25% beta reduction": {
+        "beta": 0.0402,
+        "basic_R0": 0.6401273885350319,
+        "predicted_confirmed_at_end": 157720.16335079784
+      },
+      "50% beta reduction": {
+        "beta": 0.0268,
+        "basic_R0": 0.4267515923566879,
+        "predicted_confirmed_at_end": 110355.93792224063
+      },
+      "75% beta reduction": {
+        "beta": 0.0134,
+        "basic_R0": 0.21337579617834396,
+        "predicted_confirmed_at_end": 82257.83839995186
+      }
+    },
+    "wave_2": {
+      "Paper beta (0% reduction)": {
+        "beta": 0.0536,
+        "basic_R0": 0.8535031847133758,
+        "predicted_confirmed_at_end": 278007.65360394487
+      },
+      "25% beta reduction": {
+        "beta": 0.0402,
+        "basic_R0": 0.6401273885350319,
+        "predicted_confirmed_at_end": 276893.55628530553
+      },
+      "50% beta reduction": {
+        "beta": 0.0268,
+        "basic_R0": 0.4267515923566879,
+        "predicted_confirmed_at_end": 276259.775318585
+      },
+      "75% beta reduction": {
+        "beta": 0.0134,
+        "basic_R0": 0.21337579617834396,
+        "predicted_confirmed_at_end": 275868.6267633637
+      }
+    }
+  },
+  "plot_findings": {
+    "both_waves_actual.png": "The second wave is much larger than the first wave. Daily confirmed cases peak in October 2020 for wave 1 and May 2021 for wave 2.",
+    "removed_is_recovered_plus_deaths.png": "Recovered cases are the main part of R, while deaths are smaller but must still be included in R.",
+    "wave_1_paper_beta_scenarios.png": "Reducing beta lowers the predicted cumulative cases. This agrees with the paper's control-strategy conclusion.",
+    "wave_2_paper_beta_scenarios.png": "The paper's first-wave beta values predict much less growth than the actual second wave, so the same beta cannot explain both waves.",
+    "model_fitting_and_validation.png": "A larger beta is needed before each peak and a smaller beta after the peak. This represents changing transmission and controls.",
+    "basic_and_effective_reproduction_numbers.png": "Re above 1 supports growth; after beta falls and susceptibility decreases, Re moves toward or below 1 and the wave slows."
+  },
+  "main_conclusions": [
+    "The second wave needed a much larger fitted transmission rate (0.2631) than the first wave (0.0632).",
+    "The paper beta 0.0536 gives R0 below 1 with the paper formula. It can describe a controlled/declining period but not the rapid growth of Nepal's second wave.",
+    "All 25%, 50%, and 75% beta reductions reduce predicted cases; stronger transmission control gives a smaller epidemic.",
+    "The fitted beta falls after the case peak in both waves, which is consistent with reduced contact, behavior change, immunity, or public-health controls.",
+    "Validation is not perfect because a simple SEIR model uses only two beta periods and cannot represent every reporting or behavior change."
+  ]
+}

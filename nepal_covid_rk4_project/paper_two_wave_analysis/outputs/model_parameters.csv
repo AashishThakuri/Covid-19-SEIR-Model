@@ -1,0 +1,14 @@
+parameter,value,unit,source
+eta,0.192,per day,Reference paper
+gamma,0.0588,per day,Reference paper
+delta,0.004,per day,Reference paper
+recorded_portion_p,0.0473,proportion,Reference paper
+mu,0.0,per day,Set to zero because paper gives no value
+beta_paper_beta_(0%_reduction),0.0536,per day,Reference paper scenario
+beta_25%_beta_reduction,0.0402,per day,Reference paper scenario
+beta_50%_beta_reduction,0.0268,per day,Reference paper scenario
+beta_75%_beta_reduction,0.0134,per day,Reference paper scenario
+wave_1_fitted_beta_before_peak,0.06318610711718979,per day,Least-squares fit
+wave_1_fitted_beta_after_peak,0.05630621760915139,per day,Least-squares fit
+wave_2_fitted_beta_before_peak,0.2631235178314474,per day,Least-squares fit
+wave_2_fitted_beta_after_peak,0.07430375191476447,per day,Least-squares fit
